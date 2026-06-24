@@ -1,0 +1,52 @@
+Part 1: DNS Report
+
+nslookup google.com
+nslookup -type=NS google.com
+nslookup -type=A -debug google.com
+
+instagram.com
+A record: 157.240.22.174
+TTL: 60 seconds (~1 min)
+Nameservers: a.ns.instagram.com, b.ns.instagram.com, c.ns.instagram.com, d.ns.instagram.com
+
+youtube.com
+A record: 142.250.190.206
+TTL: 300 seconds (~5 min)
+Nameservers: ns1.google.com, ns2.google.com, ns3.google.com, ns4.google.com
+
+github.com
+A record: 140.82.121.3
+TTL: 30 seconds
+Nameservers: ns-421.awsdns-52.com, ns-1707.awsdns-21.co.uk, dns1.p08.nsone.net
+
+
+Part 2: curl Scavenger Hunt
+
+200 OK
+curl -s -o NUL -w "%{http_code}" https://github.com
+Status code: 200
+
+404 Not Found
+curl -s -o NUL -w "%{http_code}" https://github.com/thispagedoesnotexist
+Status code: 404
+
+
+Part 3: DevTools Network Analysis (instagram.com)
+
+1) CSS file
+Name: Consumer.css
+Type: stylesheet
+Status: 200
+This CSS file controls the layout, colors, fonts, and overall appearance of the Instagram website.
+
+2) JavaScript file
+Name: ConsumerLibCommons.js
+Type: script
+Status: 200
+This JavaScript file provides the main functionality of the Instagram web application, including interactive features.
+
+3) Image file
+Name: instagram_logo.png
+Type: image
+Status: 200
+This image file is used to display the Instagram logo and other visual elements on the page.
